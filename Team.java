@@ -1,6 +1,4 @@
-// Version 0.1 of PennQBBot by Saajid Moyen, 11/22/2012
-//
-// Created by Alejandro López-Lago 2006
+// Version 0.2 of PennQBBot by Saajid Moyen, 11/22/2012
 
 import java.util.HashSet;
 

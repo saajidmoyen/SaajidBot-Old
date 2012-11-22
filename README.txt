@@ -1,17 +1,16 @@
-PennQBBot - A Quiz Bowl Question Reading IRC Bot based on the QBBot by Alejandro López-Lago.
-Written by Saajid Moyen
+PennQBBot - A Quiz Bowl Question Reading IRC Bot by Saajid Moyen
+Based on the QBBot by Alejandro López-Lago
 
 Version History:
-
-0.0.2 
+0.2 
 - Cleaned documentation
 
-0.0.1 
+0.1 
 - Cloned the bot from the old repository
 
 The QBBot was originally started on February 26, 2006 by Alejandro López-Lago.
 It has since been edited by Raghav Puranmalka and Mike Bentley. 
-The changelog and todos for TBot.java as of their last update is included below the class descriptions.
+The class descriptions, changelog, and todos as of their last update are included below.
 
 Class descriptions:
 
@@ -128,3 +127,49 @@ Later version?
 -!start Team1,Team2,numRounds,maxPlayersPerTeam,allowedQ,unallowedQ,set
 
 IDEAS: Log-in system, monthly stats, more than 2 teams?, keep player stats after disconnect
+
+BonusQuestion.java todos:
+
+/* possibilities:
+
+-class extended from Question (bad idea, in my opinion)
+-not a separate class: make the ArrayList hold a 3-Question array.
+        Problems: might be prissy about variable bonuses, somewhat inflexible
+-Make it have an Array/Linked List of Questions, with another variable to keep
+ track of variable-points, if applicable.  If we need variable-point bonuses,
+ maybe extend the question class to have a point-value variable?
+-Make it a separate class entirely (probably not good either)
+
+Needs:
+something needs to keep track of what team (or player) answered the question.  If I have enough
+motivation, code an ACF vs IHSA bonus feature.
+Bot reads initial phrase; then starts asking parts, giving an allotted amount of time for the team
+to buzz in and answer.  Player to answer will type in "buzz"; if that player is from the team that
+won the bonus, ask it for an answer.
+Repeat three times, then ask the next question.
+*/
+
+/* What we can do:
+-Alter the Question class so that it has a points variable - default is 10 (put in settings?)
+-Change tbot so that it gives out the question's point total
+-Implement bonuses as a LinkedList of Questions
+ --Con: larger memory footprint: you need a point value for every Question, even if it's not a bonus
+Other way:
+-In the bonus questions' file, put point totals if it's not the default value (10)
+-Have a second LinkedList in BonusQuestions that keeps track of scores
+*/
+
+/*
+ * Issues not handled in the current bonus format:
+ * Bonus parts that ask for multiple answers.  For example:
+ * [5, 5] Name the last two kings of France for five points each.
+ * 
+ * Bonuses in the format of 5 for one, 10 for two, 20 for three, 30 for all four.
+ * 
+ * Bonuses in the format of 30-20-10.
+ * 
+ * I suggest we just don't support these bonuses, at least for now.  They're not
+ * very common in modern sets.
+ * 
+ * -Mike Bentley
+ */

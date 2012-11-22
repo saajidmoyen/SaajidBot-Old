@@ -1,6 +1,4 @@
-// Version 0.1 of PennQBBot by Saajid Moyen, 11/22/2012
-//
-// Started on 07-13-2009 by Alejandro Lopez-Lago
+// Version 0.2 of PennQBBot by Saajid Moyen, 11/22/2012
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;

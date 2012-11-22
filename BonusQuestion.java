@@ -1,60 +1,12 @@
-// Version 0.1 of PennQBBot by Saajid Moyen, 11/22/2012
-//
-/* possibilities:
-
--class extended from Question (bad idea, in my opinion)
--not a separate class: make the ArrayList hold a 3-Question array.
-        Problems: might be prissy about variable bonuses, somewhat inflexible
--Make it have an Array/Linked List of Questions, with another variable to keep
- track of variable-points, if applicable.  If we need variable-point bonuses,
- maybe extend the question class to have a point-value variable?
--Make it a separate class entirely (probably not good either)
-
-Needs:
-something needs to keep track of what team (or player) answered the question.  If I have enough
-motivation, code an ACF vs IHSA bonus feature.
-Bot reads initial phrase; then starts asking parts, giving an allotted amount of time for the team
-to buzz in and answer.  Player to answer will type in "buzz"; if that player is from the team that
-won the bonus, ask it for an answer.
-Repeat three times, then ask the next question.
-*/
-
-/* What we can do:
--Alter the Question class so that it has a points variable - default is 10 (put in settings?)
--Change tbot so that it gives out the question's point total
--Implement bonuses as a LinkedList of Questions
- --Con: larger memory footprint: you need a point value for every Question, even if it's not a bonus
-Other way:
--In the bonus questions' file, put point totals if it's not the default value (10)
--Have a second LinkedList in BonusQuestions that keeps track of scores
-*/
-
-/*
- * Issues not handled in the current bonus format:
- * Bonus parts that ask for multiple answers.  For example:
- * [5, 5] Name the last two kings of France for five points each.
- * 
- * Bonuses in the format of 5 for one, 10 for two, 20 for three, 30 for all four.
- * 
- * Bonuses in the format of 30-20-10.
- * 
- * I suggest we just don't support these bonuses, at least for now.  They're not
- * very common in modern sets.
- * 
- * -Mike Bentley
- */
+// Version 0.2 of PennQBBot by Saajid Moyen, 11/22/2012
 
 // bonus format:  use @@ to separate questions
 // (scores,delimited,by,commas,optional)topic@@leadin@@Q1@@Q2@@Q3..
 // since no topic should start with (), take out whatever is in the (), and parse them.
 // If no () exists, assume all parts are worth 10 points
 
-//import java.util.LinkedList;
-
 public class BonusQuestion
 {
-        //private LinkedList<Question> bonuses;
-        //private LinkedList<Integer> scores;
         private Question[] bonuses;
         private int[] scores;
         private int questionNum;
@@ -66,8 +18,6 @@ public class BonusQuestion
 
         public BonusQuestion()
         {
-                //bonuses = new LinkedList<Question>();
-                //scores = new LinkedList<Integer>();
                 bonuses = new Question[0];
                 scores = new int[0];
                 leadin = "";
@@ -80,8 +30,6 @@ public class BonusQuestion
 
         public BonusQuestion(String line)
         {
-                //bonuses = new LinkedList<Question>();
-                //scores = new LinkedList<Integer>();
                 line.trim();
                 boolean scoreSpecific = false;
                 // Get scores, if they're there.  Scores start with a ( and end with a )
