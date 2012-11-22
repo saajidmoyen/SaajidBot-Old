@@ -1,4 +1,4 @@
-// Version 0.2 of PennQBBot by Saajid Moyen, 11/22/2012
+// Version 0.3 of PennQBBot by Saajid Moyen, 11/22/2012
 
 import java.io.*;
 
@@ -8,26 +8,26 @@ public class Player implements Comparable<Player>
         //***************
         //*Variable List*
         //***************
-        /*name = the player's name.
-        team = the player's team.
-        score = the player's overall score.
-        stat vars -->
-        numguessed = total number of questions answered.
-        numcorrect = total number of questions answered correctly.
-        numgames = total number of games played.
-        mvp = number of games where (s)he has won the mvp award.
-        lvp = number of games where (s)he has won the lvp award.*/
+        /*
+         * name = the player's name.
+         * team = the player's team.
+         * score = the player's overall score.
+         * stat vars -->
+         * numguessed = total number of questions answered.
+         * numcorrect = total number of questions answered correctly.
+         * numgames = total number of games played.
+         * mvp = number of games where (s)he has won the mvp award.
+         * lvp = number of games where (s)he has won the lvp award.
+         */
 
         private String name, team;
         private int score, numguessed, numcorrect, numgames, numwon, curguessed, curcorrect, mvp, lvp, curnegs, numnegs;
-        // Used in hashCode().  37 was chosen because I've seen it used as an example
-        // in my CS70 class at Harvey Mudd.
+        // Used in hashCode().
         private static final int HASH_MULTIPLIER = 37;
         private static final int TUPTS = 10;    // Note: TUPTS and NEGPTS may be temporary.
         private static final int NEGPTS = 5;
 
-        // Most of these functions are self explanatory.  getName() will get the name, etc.
-        // Every variable does not have a get/set function here because it's not necessary for the bot (although I may add it later).
+        // Every variable does not have a get/set function here because it's not necessary for the bot.
 
         public Player()
         {
@@ -68,7 +68,6 @@ public class Player implements Comparable<Player>
                 setStats();
         }
 
-        // all of the get statements
         public String getName()
         {
                 return name;
@@ -149,11 +148,6 @@ public class Player implements Comparable<Player>
         {
                 name = newName;
         }
-
-        /*public void setGamemaster(boolean gm)
-        {
-                gamemaster = gm;
-        }*/
 
         // Adds the number of points the player got in the round to their overall score
         public void addScore(int scr)
@@ -312,4 +306,4 @@ public class Player implements Comparable<Player>
                 return name;
         }
 
-}//end of class
+}

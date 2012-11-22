@@ -1,4 +1,4 @@
-// Version 0.2 of PennQBBot by Saajid Moyen, 11/22/2012
+// Version 0.3 of PennQBBot by Saajid Moyen, 11/22/2012
 
 import java.util.HashSet;
 
@@ -8,11 +8,13 @@ public class Team
         //***************
         //*Variable List*
         //***************
-        /* name = the tean's name.
-        guesser = the last person on the team to answer a question (correctly or incorrectly)
-        players = stores all of the players on the team.
-        score = the team's score.
-        guessed = true if the team has already answered the current question (reset every question).*/
+        /* 
+         * name = the tean's name.
+         * guesser = the last person on the team to answer a question (correctly or incorrectly)
+         * players = stores all of the players on the team.
+         * score = the team's score.
+         * guessed = true if the team has already answered the current question (reset every question).
+         */
 
         private String name, guesser;
         private HashSet<Player> players;
@@ -42,8 +44,6 @@ public class Team
                 bonusScore = 0;
                 bonusesHeard = 0;
         }
-
-        // All of these should be self-explanatory: get this, set that, etc.
 
         public String getName()
         {
@@ -75,7 +75,6 @@ public class Team
                 name = newName;
         }
 
-        // not necessary, but here for completion reasons
         public void setGuesser(String player)
         {
                 guesser = player;
@@ -86,7 +85,6 @@ public class Team
                 score = newScore;
         }
 
-        // Adds a certain point total to the score: easier than using team.setScore(team.getScore() + 10);
         public void addScore(int points)
         {
                 score += points;
@@ -129,12 +127,6 @@ public class Team
                 guessed =hasGuessed;
                 guesser = player;
         }
-
-        // Checks to see if a certain player is on the team
-        /*public boolean playerOnTeam(Player player)
-        {
-                return players.contains(player);
-        }*/
 
         // Removes a player from the team.  Add error message later?
         public void removePlayer(Player player)

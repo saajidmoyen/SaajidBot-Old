@@ -1,4 +1,4 @@
-// Version 0.2 of PennQBBot by Saajid Moyen, 11/22/2012
+// Version 0.3 of PennQBBot by Saajid Moyen, 11/22/2012
 
 // bonus format:  use @@ to separate questions
 // (scores,delimited,by,commas,optional)topic@@leadin@@Q1@@Q2@@Q3..

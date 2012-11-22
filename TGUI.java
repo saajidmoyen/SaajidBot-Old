@@ -1,4 +1,4 @@
-// Version 0.2 of PennQBBot by Saajid Moyen, 11/22/2012
+// Version 0.3 of PennQBBot by Saajid Moyen, 11/22/2012
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -49,11 +49,9 @@ public class TGUI extends WindowAdapter{
                 new TGUI();
         }
 
-        // Build the GUI
         public TGUI() {
                 isConnected = false;
 
-                // TODO: Get version from the bot.
                 mainContainer = new JFrame("Quiz Bowl Bot 2.0.8");
                 mainContainer.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
                 mainContainer.setSize(320, 200);
@@ -105,8 +103,6 @@ public class TGUI extends WindowAdapter{
         }
         
         // Load the bot's parameters from its settings file.
-        // Will require some maintenance if we significantly change how settings are stored
-                // in TBot.
         private void loadSettings()
         {
                 int settingsLoaded = 0;
@@ -148,8 +144,7 @@ public class TGUI extends WindowAdapter{
                         e.printStackTrace();
                 }
                 
-                // If we didn't load in a setting, then the settings file is bad
-                        // and we need to exit the program gracefully.
+                // If we didn't load in a setting, then the settings file is bad and we need to exit the program gracefully.
                 if(settingsLoaded != NUM_TEXTBOXES)
                 {
                         JOptionPane.showMessageDialog(null, "The settings file is improperly formatted.  There should be " +
@@ -163,8 +158,7 @@ public class TGUI extends WindowAdapter{
         private void saveSettings()
         {
                 LinkedList<String> settingsContents = new LinkedList<String>();
-                // Read in the file, replacing the appropriate lines with the new values
-                // from the text boxes.  Later on, overwrite the file.
+                // Read in the file, replacing the appropriate lines with the new values from the text boxes.  Later on, overwrite the file.
                 try {
                         BufferedReader reader = new BufferedReader(new FileReader(SETTINGS_FILE));
                         int counter = 0;
@@ -191,10 +185,8 @@ public class TGUI extends WindowAdapter{
                         e.printStackTrace();
                 }
                 
-                // Get the last element in settings and save it separately so that we
-                        // don't leave a trailing newLine
-                // We assume that there's at least one line in the settings file, otherwise
-                // the program would have terminated before.
+                // Get the last element in settings and save it separately so that we don't leave a trailing newLine.
+                // We assume that there's at least one line in the settings file, otherwise the program would have terminated before.
                 String lastElem = settingsContents.removeLast();
                 
                 try {
@@ -274,7 +266,7 @@ public class TGUI extends WindowAdapter{
                         }
                 }
                 
-        } // end of ConnectListener
+        }
         
         // Runs the bot and handles checking its connection.
         private class RunBot extends Thread
@@ -294,8 +286,7 @@ public class TGUI extends WindowAdapter{
                                         while(isConnected) {
                                                 try {
                                                         isConnected = bot.isConnected();
-                                                        // Check in every so often to make sure that a disconnect
-                                                                // caused by the bot is caught at some point.
+                                                        // Check in every so often to make sure that a disconnect caused by the bot is caught at some point.
                                                         wait(PING_TIME * SECOND);
                                                 } catch (InterruptedException e) {
                                                         e.printStackTrace();
@@ -324,6 +315,6 @@ public class TGUI extends WindowAdapter{
                         isConnected = false;
                         notify();
                 }
-        } // end of RunBot
+        } 
 
-} // end of TGUI
+}

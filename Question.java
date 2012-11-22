@@ -1,4 +1,4 @@
-// Version 0.2 of PennQBBot by Saajid Moyen, 11/22/2012
+// Version 0.3 of PennQBBot by Saajid Moyen, 11/22/2012
 
 import java.util.regex.*;
 
@@ -8,10 +8,12 @@ public class Question
         //***************
         //*Variable List*
         //***************
-        /* question = the actual question itself.
-        topic = The category of the question
-        questionNum = The question's ID
-        answers = A regular expression of possible answers.*/
+        /* 
+         * question = the actual question itself.
+         * topic = The category of the question
+         * questionNum = The question's ID
+         * answers = A regular expression of possible answers.
+         */
 
         String question, topic;
         int questionNum;

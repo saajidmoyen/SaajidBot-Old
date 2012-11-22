@@ -2,14 +2,18 @@ PennQBBot - A Quiz Bowl Question Reading IRC Bot by Saajid Moyen
 Based on the QBBot by Alejandro López-Lago
 
 Version History:
+
 0.3 
 - Removed TMain and SetDebugger
+- Removed unused methods and unnecessary notes as well as dead code
 
 0.2 
 - Cleaned documentation
 
 0.1 
 - Cloned the bot from the old repository
+
+Project History:
 
 The QBBot was originally started on February 26, 2006 by Alejandro López-Lago.
 It has since been edited by Raghav Puranmalka and Mike Bentley. 

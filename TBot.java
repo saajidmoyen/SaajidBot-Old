@@ -1,4 +1,4 @@
-// Version 0.2 of PennQBBot by Saajid Moyen, 11/22/2012
+// Version 0.3 of PennQBBot by Saajid Moyen, 11/22/2012
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -711,8 +711,6 @@ public class TBot extends PircBot
                                         if(getPlayer(text.substring(7,text.length()).trim()) != null)
                                                 removePlayer(rem);
                                 }
-                                else
-                                        msg("Player does not exist.");
                         }
                 }
 
