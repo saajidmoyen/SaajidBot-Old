@@ -2,6 +2,9 @@ PennQBBot - A Quiz Bowl Question Reading IRC Bot by Saajid Moyen
 Based on the QBBot by Alejandro López-Lago
 
 Version History:
+0.3 
+- Removed TMain and SetDebugger
+
 0.2 
 - Cleaned documentation
 
